@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import { Car, Calendar, Antenna, Search } from "lucide-react";
-import { Select } from "antd";
+import { CarFilter } from '../App';
 
-const SearchForm: React.FC = () => {
-  const [pickBrand, setPickBrand] = useState("");
-  const [pickupTime, setPickupTime] = useState("10:00");
-  const [dropoffDate, setDropoffDate] = useState("");
+interface SearchFormProps {
+  onFilter: (filter: CarFilter) => void;
+}
+
+
+const SearchForm: React.FC<SearchFormProps> = ({ onFilter }) => {
+  const [pickBrand, setPickBrand] = useState<string>("");
+  const [pickTransmisi, setPickTransmisi] = useState<string>("");
+  const [pickTahun, setPickTahun] = useState<string>("");
+
   // Set default dates (today and tomorrow)
 
   const brands = [
@@ -24,20 +30,14 @@ const SearchForm: React.FC = () => {
   ];
 
   React.useEffect(() => {
-    const today = new Date();
-    const tomorrow = new Date();
-    tomorrow.setDate(today.getDate() + 1);
-
-    const formatDate = (date: Date) => {
-      return date.toISOString().split("T")[0];
-    };
-
-    if (!dropoffDate) setDropoffDate(formatDate(tomorrow));
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
+  const handleSubmit = () => {
+    onFilter({
+      brand: pickBrand,
+      transmission: pickTransmisi,
+      year: pickTahun,
+    });
   };
 
   return (
@@ -99,8 +99,8 @@ const SearchForm: React.FC = () => {
                 />
                 <select
                   id="pickup-time"
-                  value={pickupTime}
-                  onChange={(e) => setPickupTime(e.target.value)}
+                  value={pickTransmisi}
+                  onChange={(e) => setPickTransmisi(e.target.value)}
                   className="w-full pl-10 pr-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 appearance-none"
                   required
                 >
@@ -128,8 +128,8 @@ const SearchForm: React.FC = () => {
 
                 <select
                   id="pickup-time"
-                  value={pickupTime}
-                  onChange={(e) => setPickupTime(e.target.value)}
+                  value={pickTahun}
+                  onChange={(e) => setPickTahun(e.target.value)}
                   className="w-full pl-10 pr-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 appearance-none"
                   required
                 >

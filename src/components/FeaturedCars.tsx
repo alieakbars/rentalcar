@@ -10,7 +10,7 @@ const FeaturedCars: React.FC = () => {
     {
       id: 1,
       name: 'Toyota Camry',
-      category: 'sedan',
+      category: 'automatic',
       price: 49,
       image: 'https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       features: ['5 Seats', 'Automatic', 'A/C', '2 Bags'],
@@ -20,7 +20,7 @@ const FeaturedCars: React.FC = () => {
     {
       id: 2,
       name: 'Honda CR-V',
-      category: 'suv',
+      category: 'automatic',
       price: 65,
       image: 'https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       features: ['5 Seats', 'Automatic', 'A/C', '3 Bags'],
@@ -30,7 +30,7 @@ const FeaturedCars: React.FC = () => {
     {
       id: 3,
       name: 'BMW 3 Series',
-      category: 'luxury',
+      category: 'automatic',
       price: 89,
       image: 'https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       features: ['5 Seats', 'Automatic', 'A/C', '2 Bags'],
@@ -40,7 +40,7 @@ const FeaturedCars: React.FC = () => {
     {
       id: 4,
       name: 'Chevrolet Spark',
-      category: 'economy',
+      category: 'automatic',
       price: 35,
       image: 'https://images.pexels.com/photos/1503863/pexels-photo-1503863.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       features: ['4 Seats', 'Manual', 'A/C', '1 Bag'],
@@ -50,7 +50,7 @@ const FeaturedCars: React.FC = () => {
     {
       id: 5,
       name: 'Ford F-150',
-      category: 'pickup',
+      category: 'manual',
       price: 79,
       image: 'https://images.pexels.com/photos/9553908/pexels-photo-9553908.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       features: ['5 Seats', 'Automatic', 'A/C', '4 Bags'],
@@ -60,7 +60,7 @@ const FeaturedCars: React.FC = () => {
     {
       id: 6,
       name: 'Mercedes-Benz E-Class',
-      category: 'luxury',
+      category: 'triptonic',
       price: 99,
       image: 'https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       features: ['5 Seats', 'Automatic', 'A/C', '3 Bags'],

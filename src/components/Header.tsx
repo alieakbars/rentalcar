@@ -46,7 +46,7 @@ const Header: React.FC = () => {
           <div className="flex items-center">
             <a href="#" className="flex items-center font-bold text-xl text-primary-700 mr-8">
               <Car className="mr-2 text-accent-500" size={28} />
-              <span>ICANRENT</span>
+              <span>Rental Medan</span>
             </a>
             
             <div className="hidden md:flex items-center space-x-1">

@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
           <div>
             <a href="#" className="flex items-center font-bold text-xl text-white mb-4">
               <Car className="mr-2 text-accent-500" size={28} />
-              <span>ICANRENT</span>
+              <span>Rental Medan</span>
             </a>
             <p className="mb-4">
               Making car rental easy and accessible for everyone, with 3,000+ locations across 100+ countries.
