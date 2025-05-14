@@ -1,13 +1,12 @@
-import React, { useState } from "react";
-import { Search, MapPin, Calendar, Clock } from "lucide-react";
+
 import SearchForm from "./SearchForm";
 import { CarFilter } from "../App";
 
 interface HeroProps {
-  onSearch: (filter: CarFilter) => void;
+  onFilter: (filter: CarFilter) => void;
 }
 
-const Hero: React.FC<HeroProps> = ({ onSearch }) => {
+const Hero: React.FC<HeroProps> = ({ onFilter }) => {
   return (
     <section className="relative bg-gradient-to-r from-primary-700 to-primary-800 text-white overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
@@ -23,7 +22,7 @@ const Hero: React.FC<HeroProps> = ({ onSearch }) => {
             </h1>
 
             <div className="lg:ml-auto animate-slide-up">
-              <SearchForm onSearch={onSearch} />
+              <SearchForm onFilter={onFilter} />
             </div>
           </div>
         </div>

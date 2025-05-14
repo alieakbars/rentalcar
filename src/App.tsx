@@ -32,8 +32,8 @@ function App() {
     <div className="flex flex-col min-h-screen bg-neutral-50">
       <Header />
       <main>
-        <Hero onSearch={handleSearch} />
-        <FeaturedCars />
+        <Hero onFilter={handleSearch} />
+        <FeaturedCars filter={filters}/>
         <Services />
         <Locations />
         <Testimonials />

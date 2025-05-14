@@ -16,7 +16,7 @@ const CarCard: React.FC<CarCardProps> = ({ car }) => {
           className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
         />
         <span className="absolute top-3 left-3 bg-white px-2 py-1 rounded text-sm font-medium text-primary-700">
-          {car.category.charAt(0).toUpperCase() + car.category.slice(1)}
+          {car.brand.charAt(0).toUpperCase() + car.brand.slice(1)}
         </span>
         <button className="absolute top-3 right-3 bg-white p-2 rounded-full text-neutral-500 hover:text-accent-500 transition-colors">
           <Heart size={18} />

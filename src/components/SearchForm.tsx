@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Car, Calendar, Antenna, Search } from "lucide-react";
 import { CarFilter } from '../App';
+import moment from "moment";
 
 interface SearchFormProps {
   onFilter: (filter: CarFilter) => void;
@@ -9,8 +10,8 @@ interface SearchFormProps {
 
 const SearchForm: React.FC<SearchFormProps> = ({ onFilter }) => {
   const [pickBrand, setPickBrand] = useState<string>("");
-  const [pickTransmisi, setPickTransmisi] = useState<string>("");
-  const [pickTahun, setPickTahun] = useState<string>("");
+  const [pickTransmisi, setPickTransmisi] = useState<string>("random");
+  const [pickTahun, setPickTahun] = useState<string>(moment().format("YYYY"));
 
   // Set default dates (today and tomorrow)
 
@@ -32,7 +33,14 @@ const SearchForm: React.FC<SearchFormProps> = ({ onFilter }) => {
   React.useEffect(() => {
   }, []);
 
-  const handleSubmit = () => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    if (typeof onFilter !== "function") {
+      console.error("onFilter is not a function", onFilter);
+      return;
+    }
+
     onFilter({
       brand: pickBrand,
       transmission: pickTransmisi,
