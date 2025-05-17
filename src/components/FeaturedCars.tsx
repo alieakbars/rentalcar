@@ -3,6 +3,7 @@ import { Filter, ChevronRight } from 'lucide-react';
 import CarCard from './CarCard';
 import { CarType } from '../types/car';
 import { CarFilter } from "../App";
+import Cars from '../data/car';
 
 interface FeaturedCarsProps {
   filter: CarFilter | null;
@@ -11,80 +12,7 @@ interface FeaturedCarsProps {
 const FeaturedCars: React.FC<FeaturedCarsProps> = ({ filter  }) => {
   const [activeFilter, setActiveFilter] = useState<string>('all');
   
-  const cars: CarType[] = [
-    {
-      id: 1,
-      name: 'Toyota Camry',
-      brand: 'toyota',
-      transmission: 'automatic',
-      price: 49,
-      image: 'https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      features: ['5 Seats', 'Automatic', 'A/C', '2 Bags'],
-      rating: 4.8,
-      reviews: 342,
-      year: 2025
-    },
-    {
-      id: 2,
-      name: 'Honda CR-V',
-      brand: 'honda',
-      transmission: 'automatic',
-      price: 65,
-      image: 'https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      features: ['5 Seats', 'Automatic', 'A/C', '3 Bags'],
-      rating: 4.7,
-      reviews: 286,
-      year: 2025
-    },
-    {
-      id: 3,
-      name: 'BMW 3 Series',
-      brand: 'bmw',
-      transmission: 'automatic',
-      price: 89,
-      image: 'https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      features: ['5 Seats', 'Automatic', 'A/C', '2 Bags'],
-      rating: 4.9,
-      reviews: 412,
-      year: 2025
-    },
-    {
-      id: 4,
-      name: 'Chevrolet Spark',
-      brand: 'chevrolet',
-      transmission: 'automatic',
-      price: 35,
-      image: 'https://images.pexels.com/photos/1503863/pexels-photo-1503863.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      features: ['4 Seats', 'Manual', 'A/C', '1 Bag'],
-      rating: 4.5,
-      reviews: 198,
-      year: 2025
-    },
-    {
-      id: 5,
-      name: 'Ford F-150',
-      brand: 'ford',
-      transmission: 'manual',
-      price: 79,
-      image: 'https://images.pexels.com/photos/9553908/pexels-photo-9553908.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      features: ['5 Seats', 'Automatic', 'A/C', '4 Bags'],
-      rating: 4.6,
-      reviews: 256,
-      year: 2025
-    },
-    {
-      id: 6,
-      name: 'Mercedes-Benz E-Class',
-      brand: 'mercedes',
-      transmission: 'triptonic',
-      price: 99,
-      image: 'https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      features: ['5 Seats', 'Automatic', 'A/C', '3 Bags'],
-      rating: 4.9,
-      reviews: 378,
-      year: 2025
-    }
-  ];
+  const cars: CarType[] = Cars;
 
   // const filters = [
   //   { id: 'all', label: 'All Cars' },
@@ -103,7 +31,7 @@ const FeaturedCars: React.FC<FeaturedCarsProps> = ({ filter  }) => {
     if (!filter) return true; // kalau belum difilter, tampilkan semua
 
     return (
-      (!filter.brand || car.brand === filter.brand) &&
+      (!filter.brand || car.brand === filter.brand) && 
       (!filter.transmission || car.transmission === filter.transmission) &&
       (!filter.year || car.year === Number(filter.year))
     );

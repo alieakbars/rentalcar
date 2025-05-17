@@ -11,7 +11,7 @@ const CarCard: React.FC<CarCardProps> = ({ car }) => {
     <div className="card group animate-fade-in">
       <div className="relative">
         <img 
-          src={car.image} 
+          src={car.image[1]} 
           alt={car.name} 
           className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
         />
