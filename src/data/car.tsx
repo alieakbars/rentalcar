@@ -7,11 +7,9 @@ const cars: CarType[] = [
     brand: "Toyota",
     transmission: ["Manual"],
     price: [300000],
-    image: [
-      "https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    ],
-    seat: "5 Kursi",
-    year: 2016 - 2018,
+    image: ["/image/avanza-2018.png"],
+    seat: "7 Seater",
+    year: "2016 - 2018",
     fuel: "Bensin",
   },
   {
@@ -20,11 +18,9 @@ const cars: CarType[] = [
     brand: "Daihatsu",
     transmission: ["Manual"],
     price: [300000],
-    image: [
-      "https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    ],
-    seat: "5 Kursi",
-    year: 2016 - 2018,
+    image: ["/image/xenia-2018.png"],
+    seat: "7 Seater",
+    year: "2016 - 2018",
     fuel: "Bensin",
   },
   {
@@ -33,11 +29,9 @@ const cars: CarType[] = [
     brand: "Toyota",
     transmission: ["Manual", "Automatic"],
     price: [350000, 400000],
-    image: [
-      "https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    ],
-    seat: "5 Kursi",
-    year: 2019 - 2021,
+    image: ["/image/avanza-2019-300x200.png"],
+    seat: "7 Seater",
+    year: "2019 - 2021",
     fuel: "Bensin",
   },
   {
@@ -46,11 +40,9 @@ const cars: CarType[] = [
     brand: "Daihatsu",
     transmission: ["Manual", "Automatic"],
     price: [350000, 400000],
-    image: [
-      "https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    ],
-    seat: "5 Kursi",
-    year: 2019 - 2021,
+    image: ["/image/Daihatsu-xenia-2019.png"],
+    seat: "7 Seater",
+    year: "2019 - 2021",
     fuel: "Bensin",
   },
   {
@@ -59,11 +51,9 @@ const cars: CarType[] = [
     brand: "Toyota",
     transmission: ["Manual", "Automatic"],
     price: [375000, 425000],
-    image: [
-      "https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    ],
-    seat: "5 Kursi",
-    year: 2022 - 2023,
+    image: ["/image/rent-avanza-600x400.png"],
+    seat: "7 Seater",
+    year: "2022 - 2023",
     fuel: "Bensin",
   },
   {
@@ -72,11 +62,9 @@ const cars: CarType[] = [
     brand: "Daihatsu",
     transmission: ["Manual", "Automatic"],
     price: [375000, 425000],
-    image: [
-      "https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    ],
-    seat: "5 Kursi",
-    year: 2022 - 2023,
+    image: ["/image/xenia-2022.png"],
+    seat: "7 Seater",
+    year: "2022 - 2023",
     fuel: "Bensin",
   },
   {
@@ -85,11 +73,9 @@ const cars: CarType[] = [
     brand: "Toyota",
     transmission: ["Manual", "Automatic"],
     price: [500000, 550000],
-    image: [
-      "https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    ],
+    image: ["/image/INNOVA-REBORN-PNG-400x229.png"],
     seat: "5 Kursi",
-    year: 2020 - 2023,
+    year: "2020 - 2023",
     fuel: "Bensin",
   },
   {
@@ -98,11 +84,9 @@ const cars: CarType[] = [
     brand: "Toyota",
     transmission: ["Manual", "Automatic"],
     price: [550000, 600000],
-    image: [
-      "https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    ],
+    image: ["/image/INNOVA-REBORN-PNG-400x229.png"],
     seat: "5 Kursi",
-    year: 2020 - 2023,
+    year: "2020 - 2023",
     fuel: "Solar",
   },
   {
@@ -111,11 +95,9 @@ const cars: CarType[] = [
     brand: "Toyota",
     transmission: ["Automatic"],
     price: [700000],
-    image: [
-      "https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    ],
+    image: ["/image/Zenix.png"],
     seat: "5 Kursi",
-    year: 2023,
+    year: "2023",
     fuel: "Solar",
   },
   {
@@ -124,11 +106,9 @@ const cars: CarType[] = [
     brand: "Nissan",
     transmission: ["Manual", "Automatic"],
     price: [400000, 450000],
-    image: [
-      "https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    ],
+    image: ["/image/livina.png"],
     seat: "5 Kursi",
-    year: 2021 - 2023,
+    year: "2021 - 2023",
     fuel: "Bensin",
   },
   {
@@ -137,11 +117,9 @@ const cars: CarType[] = [
     brand: "Mitsubishi",
     transmission: ["Manual", "Automatic"],
     price: [400000, 450000],
-    image: [
-      "https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    ],
+    image: ["/image/xpander.png"],
     seat: "5 Kursi",
-    year: 2021 - 2023,
+    year: "2021 - 2023",
     fuel: "Bensin",
   },
   {
@@ -150,11 +128,9 @@ const cars: CarType[] = [
     brand: "Suzuki",
     transmission: ["Automatic"],
     price: [450000],
-    image: [
-      "https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    ],
+    image: ["/image/xl7.png"],
     seat: "5 Kursi",
-    year: 2023,
+    year: "2023",
     fuel: "Bensin",
   },
   {
@@ -163,11 +139,9 @@ const cars: CarType[] = [
     brand: "Honda",
     transmission: ["Manual", "Automatic"],
     price: [300000, 350000],
-    image: [
-      "https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    ],
+    image: ["/image/brio.png"],
     seat: "5 Kursi",
-    year: 2022,
+    year: "2022",
     fuel: "Bensin",
   },
   {
@@ -176,11 +150,9 @@ const cars: CarType[] = [
     brand: "Toyota",
     transmission: ["Manual", "Automatic"],
     price: [300000, 350000],
-    image: [
-      "https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    ],
+    image: ["/image/calya.png"],
     seat: "5 Kursi",
-    year: 2019 - 2023,
+    year: "2019 - 2023",
     fuel: "Bensin",
   },
   {
@@ -189,11 +161,9 @@ const cars: CarType[] = [
     brand: "Daihatsu",
     transmission: ["Manual", "Automatic"],
     price: [300000, 350000],
-    image: [
-      "https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    ],
+    image: ["/image/sigra.png"],
     seat: "5 Kursi",
-    year: 2019 - 2023,
+    year: "2019 - 2023",
     fuel: "Bensin",
   },
   {
@@ -202,11 +172,9 @@ const cars: CarType[] = [
     brand: "Daihatsu",
     transmission: ["Manual", "Automatic"],
     price: [400000, 450000],
-    image: [
-      "https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    ],
+    image: ["/image/terios-x.png"],
     seat: "5 Kursi",
-    year: 2022 - 2023,
+    year: "2022 - 2023",
     fuel: "Bensin",
   },
   {
@@ -215,11 +183,9 @@ const cars: CarType[] = [
     brand: "Daihatsu",
     transmission: ["Manual", "Automatic"],
     price: [300000, 350000],
-    image: [
-      "https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    ],
+    image: ["/image/Daihatsu-xenia-2019.png"],
     seat: "5 Kursi",
-    year: 2019 - 2023,
+    year: "2019 - 2023",
     fuel: "Bensin",
   },
   {
@@ -228,11 +194,9 @@ const cars: CarType[] = [
     brand: "Toyota",
     transmission: ["Manual", "Automatic"],
     price: [300000, 350000],
-    image: [
-      "https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    ],
+    image: ["/image/Daihatsu-xenia-2019.png"],
     seat: "5 Kursi",
-    year: 2019 - 2023,
+    year: "2019 - 2023",
     fuel: "Bensin",
   },
   {
@@ -241,24 +205,20 @@ const cars: CarType[] = [
     brand: "Honda",
     transmission: ["Automatic"],
     price: [450000],
-    image: [
-      "https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    ],
+    image: ["/image/Daihatsu-xenia-2019.png"],
     seat: "5 Kursi",
-    year: 2022 - 2023,
+    year: "2022 - 2023",
     fuel: "Bensin",
   },
-    {
+  {
     id: 20,
     name: "Mobilio",
     brand: "Honda",
     transmission: ["Automatic"],
-    price: [350000,400000],
-    image: [
-      "https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    ],
+    price: [350000, 400000],
+    image: ["/image/Daihatsu-xenia-2019.png"],
     seat: "5 Kursi",
-    year: 2022 - 2023,
+    year: "2022 - 2023",
     fuel: "Bensin",
   },
 ];

@@ -28,11 +28,12 @@ const FeaturedCars: React.FC<FeaturedCarsProps> = ({ filter  }) => {
   //   : cars.filter(car => car.category === activeFilter);
 
     const filteredCars = cars.filter((car) => {
-    if (!filter) return true; // kalau belum difilter, tampilkan semua
+    if (!filter) return true;
+    
 
     return (
       (!filter.brand || car.brand === filter.brand) && 
-      (!filter.transmission || car.transmission === filter.transmission) &&
+      (!filter.transmission || car.transmission.includes(filter.transmission)) &&
       (!filter.year || car.year === Number(filter.year))
     );
   });

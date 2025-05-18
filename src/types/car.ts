@@ -6,6 +6,6 @@ export interface CarType {
   price: number[];
   image: string[];
   seat: string;
-  year: number;
+  year: string;
   fuel: string;
 }
