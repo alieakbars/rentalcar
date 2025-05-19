@@ -14,10 +14,10 @@ const Hero: React.FC<HeroProps> = ({ onFilter }) => {
         <div className="absolute inset-0 bg-gradient-to-r from-primary-700 to-primary-800 opacity-80"></div>
       </div>
 
-      <div className="container relative py-16 md:py-20 mt-2 lg:py-24">
+      <div className="container relative py-16 md:py-20 lg:py-24">
         <div className="grid grid-cols-1 gap-8 items-center text-center">
           <div className="animate-fade-in">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 mt-5 leading-tight">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
               Mau Sewa Mobil Apa?
             </h1>
 

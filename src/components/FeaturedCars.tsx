@@ -1,18 +1,41 @@
-import React, { useState } from 'react';
-import { Filter, ChevronRight } from 'lucide-react';
-import CarCard from './CarCard';
-import { CarType } from '../types/car';
+import React, { useState } from "react";
+import { Filter, ChevronRight } from "lucide-react";
+import CarCard from "./CarCard";
+import { CarType } from "../types/car";
 import { CarFilter } from "../App";
-import Cars from '../data/car';
+import Cars from "../data/car";
 
 interface FeaturedCarsProps {
   filter: CarFilter | null;
 }
 
-const FeaturedCars: React.FC<FeaturedCarsProps> = ({ filter  }) => {
-  const [activeFilter, setActiveFilter] = useState<string>('all');
-  
+const FeaturedCars: React.FC<FeaturedCarsProps> = ({ filter }) => {
+  const [activeFilter, setActiveFilter] = useState<string>("all");
+
+  console.log(filter);
+
   const cars: CarType[] = Cars;
+
+  const isYearInRange = (filterYear: number, carYearString: string) => {
+    if (!carYearString || !filterYear) return false;
+
+    const yearStr = carYearString.trim();
+
+    if (!yearStr.includes("-")) {
+      const carYear = parseInt(yearStr, 10);
+      return carYear === filterYear;
+    }
+
+    const [startStr, endStr] = yearStr
+      .split("-")
+      .map((str: string) => str.trim());
+    const start = parseInt(startStr, 10);
+    const end = parseInt(endStr, 10);
+
+    if (isNaN(start) || isNaN(end)) return false;
+
+    return filterYear >= start && filterYear <= end;
+  };
 
   // const filters = [
   //   { id: 'all', label: 'All Cars' },
@@ -23,25 +46,28 @@ const FeaturedCars: React.FC<FeaturedCarsProps> = ({ filter  }) => {
   //   { id: 'pickup', label: 'Pickup' }
   // ];
 
-  // const filteredCars = activeFilter === 'all' 
-  //   ? cars 
+  // const filteredCars = activeFilter === 'all'
+  //   ? cars
   //   : cars.filter(car => car.category === activeFilter);
 
-    const filteredCars = cars.filter((car) => {
+  const filteredCars = cars.filter((car) => {
     if (!filter) return true;
-    
 
     return (
-      (!filter.brand || car.brand === filter.brand) && 
-      (!filter.transmission || car.transmission.includes(filter.transmission)) &&
-      (!filter.year || car.year === Number(filter.year))
+      (!filter.brand || filter.brand === "All" || car.brand === filter.brand) &&
+      (!filter.transmission ||
+        filter.transmission === "All" ||
+        car.transmission.includes(filter.transmission)) &&
+      (!filter.year ||
+        filter.year === "All" ||
+        isYearInRange(Number(filter.year), car.year))
     );
   });
 
   return (
     <section className="section bg-neutral-50">
       <div className="container">
-        <div className="flex flex-col md:flex-row md:items-center justify-between mb-8">
+        {/* <div className="flex flex-col md:flex-row md:items-center justify-between mb-8">
           <div>
             <h2 className="text-3xl font-bold mb-2">Featured Vehicles</h2>
             <p className="text-neutral-600">Find the perfect car for your next trip</p>
@@ -66,20 +92,20 @@ const FeaturedCars: React.FC<FeaturedCarsProps> = ({ filter  }) => {
               </button>
             ))}
           </div>
-        </div>
-        
+        </div> */}
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredCars.map(car => (
+          {filteredCars.map((car) => (
             <CarCard key={car.id} car={car} />
           ))}
         </div>
-        
-        <div className="mt-10 flex justify-center">
+
+        {/* <div className="mt-10 flex justify-center">
           <a href="#" className="btn-primary flex items-center">
             View All Cars
             <ChevronRight size={18} className="ml-1" />
           </a>
-        </div>
+        </div> */}
       </div>
     </section>
   );

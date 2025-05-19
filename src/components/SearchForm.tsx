@@ -1,37 +1,39 @@
 import React, { useState } from "react";
 import { Car, Calendar, Antenna, Search } from "lucide-react";
-import { CarFilter } from '../App';
+import { CarFilter } from "../App";
 import moment from "moment";
+import Cars from "../data/car";
+import { CarType } from "../types/car";
 
 interface SearchFormProps {
   onFilter: (filter: CarFilter) => void;
 }
 
-
 const SearchForm: React.FC<SearchFormProps> = ({ onFilter }) => {
-  const [pickBrand, setPickBrand] = useState<string>("");
-  const [pickTransmisi, setPickTransmisi] = useState<string>("random");
+  const [pickBrand, setPickBrand] = useState<string>("All");
+  const [pickTransmisi, setPickTransmisi] = useState<string>("All");
   const [pickTahun, setPickTahun] = useState<string>(moment().format("YYYY"));
 
-  // Set default dates (today and tomorrow)
+  const cars: CarType[] = Cars;
 
-  const brands = [
-    { value: "volvo", label: "Volvo" },
-    { value: "saab", label: "Saab" },
-    { value: "mercedes", label: "Mercedes" },
-    { value: "audi", label: "Audi" },
-  ];
+  const uniqueBrands = cars.filter(
+    (car, index, self) =>
+      car.brand && index === self.findIndex((c) => c.brand === car.brand)
+  );
 
-    const transition = [
-      { value: "random", label: "Random" },
-      { value: "automatic", label: "Automatic" },
-      { value: "electric", label: "Electric" },
-    { value: "manual", label: "Manual" },
-    { value: "triptonic", label: "Triptonic" },
-  ];
+  const transmisiSet = new Set();
 
-  React.useEffect(() => {
-  }, []);
+  cars.forEach((car) => {
+    (car.transmission || []).forEach((brand) => {
+      if (typeof brand === "string") {
+        transmisiSet.add(brand.trim()); // bisa tambahkan .toLowerCase() jika perlu normalisasi
+      }
+    });
+  });
+
+  const uniqueTransmisi = [...transmisiSet];
+
+  React.useEffect(() => {}, []);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -46,6 +48,9 @@ const SearchForm: React.FC<SearchFormProps> = ({ onFilter }) => {
       transmission: pickTransmisi,
       year: pickTahun,
     });
+
+    console.log(pickBrand, pickTransmisi, pickTahun);
+    
   };
 
   return (
@@ -83,10 +88,10 @@ const SearchForm: React.FC<SearchFormProps> = ({ onFilter }) => {
                   className="w-full pl-10 pr-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 appearance-none"
                   required
                 >
-                  <option value=""> brand </option>
-                  {brands.map((brand) => (
-                    <option key={brand.value} value={brand.value}>
-                      {brand.label}
+                  <option value="All">Semua Brand</option>
+                  {uniqueBrands.map((car) => (
+                    <option key={car.brand} value={car.brand}>
+                      {car.brand}
                     </option>
                   ))}
                 </select>
@@ -112,9 +117,10 @@ const SearchForm: React.FC<SearchFormProps> = ({ onFilter }) => {
                   className="w-full pl-10 pr-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 appearance-none"
                   required
                 >
-                  {transition.map((t) => (
-                    <option key={t.value} value={t.value}>
-                      {t.label}
+                  <option value="All">Semua Transmisi</option>
+                  {(uniqueTransmisi as string[]).map((transmisi) => (
+                    <option key={transmisi} value={transmisi}>
+                      {transmisi}
                     </option>
                   ))}
                 </select>
@@ -157,7 +163,7 @@ const SearchForm: React.FC<SearchFormProps> = ({ onFilter }) => {
               <div className="relative">
                 <button
                   type="submit"
-                  className="w-full mt-7 bg-accent-500 hover:bg-accent-600 text-white py-3 px-4 rounded-md font-medium transition-colors flex items-center justify-center"
+                  className="w-full mt-7 bg-sky-500/100 hover:bg-blue-500 text-white py-3 px-4 rounded-md font-medium transition-colors flex items-center justify-center"
                 >
                   <Search size={18} className="mr-2" />
                   Cari Sekarang
