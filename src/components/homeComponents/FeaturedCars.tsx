@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Filter, ChevronRight } from "lucide-react";
 import CarCard from "./CarCard";
-import { CarType } from "../types/car";
-import { CarFilter } from "../App";
-import Cars from "../data/car";
+import { CarType } from "../../types/car";
+import { CarFilter } from "../../App";
+import Cars from "../../data/car";
 
 interface FeaturedCarsProps {
   filter: CarFilter | null;

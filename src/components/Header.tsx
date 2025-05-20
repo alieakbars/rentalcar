@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import {
   Car,
   MenuIcon,
@@ -8,6 +9,7 @@ import {
   Globe,
   Phone,
 } from "lucide-react";
+
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -79,19 +81,19 @@ const Header: React.FC = () => {
             </a>
 
             <div className="hidden md:flex items-center space-x-1">
-              {[{name:"Car Rentals",link:"#"},
+              {[{name:"Home",link:"/"},
                 {name:"Locations",link:"#"},
-                {name:"Deals",link:"#"},
+                {name:"About",link:"/about"},
                 {name:"Vehicle Types",link:"#"},
                 {name:"For Business",link:"#"}].map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href="#"
+                  to={item.link}
                   className="px-3 py-2 text-neutral-700 rounded-md text-sm font-medium hover:bg-neutral-100 hover:text-primary-700 flex items-center"
                 >
                   {item.name}
                   {/* <ChevronDown size={16} className="ml-1" /> */}
-                </a>
+                </Link>
               ))}
             </div>
           </div>

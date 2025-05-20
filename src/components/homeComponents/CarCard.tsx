@@ -1,19 +1,24 @@
 import React from "react";
-import { RockingChair, Antenna, Check, Heart, Fuel, CalendarDays } from "lucide-react";
-import { CarType } from "../types/car";
+import {
+  RockingChair,
+  Antenna,
+  Check,
+  Heart,
+  Fuel,
+  CalendarDays,
+} from "lucide-react";
+import { CarType } from "../../types/car";
 
 interface CarCardProps {
   car: CarType;
 }
 
-
 const CarCard: React.FC<CarCardProps> = ({ car }) => {
-
-  const formattedCurrency = new Intl.NumberFormat('id-ID', {
-  style: 'currency',
-  currency: 'IDR',
-  minimumFractionDigits: 0,
-}).format(car.price[0]);
+  const formattedCurrency = new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    minimumFractionDigits: 0,
+  }).format(car.price[0]);
 
   return (
     <div className="card group animate-fade-in flex flex-col h-full">

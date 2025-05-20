@@ -1,6 +1,5 @@
-
 import SearchForm from "./SearchForm";
-import { CarFilter } from "../App";
+import { CarFilter } from "../../App";
 
 interface HeroProps {
   onFilter: (filter: CarFilter) => void;

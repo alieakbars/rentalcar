@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Car, Calendar, Antenna, Search } from "lucide-react";
-import { CarFilter } from "../App";
+import { CarFilter } from "../../App";
 import moment from "moment";
-import Cars from "../data/car";
-import { CarType } from "../types/car";
+import Cars from "../../data/car";
+import { CarType } from "../../types/car";
 
 interface SearchFormProps {
   onFilter: (filter: CarFilter) => void;
@@ -50,7 +50,6 @@ const SearchForm: React.FC<SearchFormProps> = ({ onFilter }) => {
     });
 
     console.log(pickBrand, pickTransmisi, pickTahun);
-    
   };
 
   return (
