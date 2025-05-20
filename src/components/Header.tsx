@@ -82,8 +82,8 @@ const Header: React.FC = () => {
 
             <div className="hidden md:flex items-center space-x-1">
               {[{name:"Home",link:"/"},
-                {name:"Locations",link:"#"},
-                {name:"About",link:"/about"},
+                {name:"Location",link:"/location"},
+                {name:"Contact Us",link:"/contact"},
                 {name:"Vehicle Types",link:"#"},
                 {name:"For Business",link:"#"}].map((item) => (
                 <Link
