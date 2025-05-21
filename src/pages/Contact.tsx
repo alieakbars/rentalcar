@@ -17,10 +17,11 @@ const Contact = () => {
 
             <div className='mt-5' >
                 <h3 className="text-xl font-bold mb-2">Muezza Car Rental</h3>
-                <p className="text-gray-600 mb-4">
+                <p className="text-gray-600">
+                  <strong>Alamat : </strong> 
                     Jl. Garu 1 No.106 A, Sitirejo III, Kec. Medan Amplas, Kota Medan, Sumatera Utara 20147
                 </p>
-                <p className="text-gray-600 mb-4">
+                <p className="text-gray-600">
                     <strong>Email:</strong> 
                 </p>
             </div>
