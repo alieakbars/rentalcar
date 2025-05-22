@@ -30,9 +30,9 @@ const Home = () => {
         <Hero onFilter={handleSearch} />
         <FeaturedCars filter={filters} />
         <Services />
-        <Locations />
+        {/* <Locations />
         <Testimonials />
-        <FAQ />
+        <FAQ /> */}
         {/* <Newsletter /> */}
       </main>
     </div>

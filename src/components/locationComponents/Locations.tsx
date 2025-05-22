@@ -16,7 +16,7 @@ const Locations: React.FC = () => {
     <section className="section bg-primary-50">
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl font-bold mb-4">Lokasi Kami</h2>
+          <h2 className="text-3xl font-bold mb-4">Lokasi Rental Mobil Medan Muezza</h2>
         </div>
 
         <div className="grid grid-cols-1 gap-8">

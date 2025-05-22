@@ -30,7 +30,7 @@ const Header: React.FC = () => {
         isScrolled ? "bg-white shadow-md" : "bg-transparent"
       }`}
     >
-      <div className="hidden lg:block bg-primary-700 text-white py-1">
+      {/* <div className="hidden lg:block bg-primary-700 text-white py-1">
         <div className="container flex justify-between items-center">
           <div className="flex items-center space-x-4 text-sm">
             <a
@@ -63,7 +63,7 @@ const Header: React.FC = () => {
             </a>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <nav className="container py-4">
         <div className="flex items-center justify-between">
@@ -103,7 +103,7 @@ const Header: React.FC = () => {
               <UserCircle className="mr-1" size={20} />
               Sign In / Register
             </a> */}
-            <a href="#" className="btn-blue">
+            <a href="https://wa.link/21zsn2" className="btn-blue">
               Book Now
             </a>
           </div>
@@ -162,7 +162,7 @@ const Header: React.FC = () => {
                   Sign In / Register
                 </a>
                 <a
-                  href="#"
+                  href="https://wa.link/21zsn2"
                   className="block px-3 py-2 bg-accent-500 text-white rounded-md text-sm font-medium hover:bg-accent-600 text-center"
                 >
                   Book Now
