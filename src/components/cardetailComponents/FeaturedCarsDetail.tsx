@@ -3,6 +3,8 @@ import { CarType } from "../../types/car";
 import Cars from "../../data/car";
 import { useEffect, useState } from "react";
 import ButtonComponent from "../ButtonComponent";
+import { InputNumber } from "antd";
+import type { InputNumberProps } from "antd";
 
 import {
   RockingChair,
@@ -12,6 +14,10 @@ import {
   Fuel,
   CalendarDays,
 } from "lucide-react";
+
+const onChange: InputNumberProps["onChange"] = (value) => {
+  console.log("changed", value);
+};
 
 interface FeaturedCarsDetailProps {
   id?: string;
@@ -42,8 +48,8 @@ const FeaturedCarsDetail: React.FC<FeaturedCarsDetailProps> = ({ id }) => {
 
       <div className="container relative py-16 md:py-20 lg:py-24">
         <div className="animate-fade-in">
-          <div className="grid grid-flow-col grid-rows-2">
-            <div className="row-span-3">
+          <div className="grid grid-flow-col grid-col-2">
+            <div className="row-span-2">
               {" "}
               <img
                 src={mobil.image[0]}
@@ -97,13 +103,15 @@ const FeaturedCarsDetail: React.FC<FeaturedCarsDetailProps> = ({ id }) => {
 
                   <div className="mt-3 flex flex-col">
                     <span className="inline-flex items-center px-2 py-1  text-neutral-700 rounded text-xs">
-                      <Fuel size={12} className="mr-1 text-primary-700" />
-                      Pilih Bahan Bakar :
+                      <Antenna size={12} className="mr-1 text-primary-700" />
+                      Pilih Transmisi :
                     </span>
-                    <ButtonComponent
-                      label=""
-                      type="radio"
-                      val={mobil.fuel}
+                    <InputNumber
+                      min={1}
+                      max={10}
+                      defaultValue={1}
+                      onChange={onChange}
+                      changeOnWheel
                       size="small"
                     />
                   </div>

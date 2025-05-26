@@ -31,19 +31,11 @@ const CarCard: React.FC<CarCardProps> = ({ car }) => {
         <span className="absolute top-3 left-3 bg-white px-2 py-1 rounded text-sm font-medium text-primary-700">
           {car.brand}
         </span>
-        {/* <button className="absolute top-3 right-3 bg-white p-2 rounded-full text-neutral-500 hover:text-accent-500 transition-colors">
-          <Heart size={18} />
-        </button> */}
       </div>
 
       <div className="p-4 flex flex-col justify-between flex-grow">
         <div className="flex justify-between items-start">
           <h3 className="text-lg font-semibold">{car.name}</h3>
-          {/* <div className="flex items-center">
-            <Star size={16} className="text-amber-500 fill-amber-500" />
-            <span className="ml-1 text-sm font-medium">{car.rating}</span>
-            <span className="ml-1 text-xs text-neutral-500">({car.reviews})</span>
-          </div> */}
         </div>
 
         <div className="mt-3 flex flex-wrap gap-2">
