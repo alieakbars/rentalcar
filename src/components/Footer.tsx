@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
     <footer className="bg-neutral-900 text-neutral-300 pt-5 pb-6">
       <div className="container">
         <div className="flex items-center justify-center">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl w-full shadow-lg">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl w-full">
             <div>
               <a
                 href="#"
