@@ -68,7 +68,7 @@ const CarCard: React.FC<CarCardProps> = ({ car }) => {
             </span>
           </div>
           <a href="#" className="btn-blue">
-            Rent Now
+            Lihat Detail
           </a>
         </div>
       </div>

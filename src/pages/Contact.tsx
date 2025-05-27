@@ -10,9 +10,7 @@ const Contact = () => {
 
         <div className="flex items-center justify-center min-h-screen">
           <div className="bg-white rounded-xl shadow-md p-6 animate-fade-in text-center">
-            <img src="/image/about.jpeg" alt="Logo" />
-
-            <div className="mt-5 ">
+            <div className="mt-5 mb-5">
               <h2 className="font-bold mb-5 mt-5">Muezza RentCar Medan</h2>
               <p className="text-gray-600 text-xl mt-5 mb-5">
                 Hubungi kontak kami untuk informasi lebih lanjut :
@@ -46,6 +44,7 @@ const Contact = () => {
                 </p>
               </a>
             </div>
+            <img src="/image/about.jpeg" alt="Logo" />
           </div>
         </div>
       </div>

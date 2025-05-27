@@ -47,7 +47,7 @@ const Services: React.FC = () => {
               <UserCircle className="mr-1" size={20} />
               Sign In / Register
             </a> */}
-          <a href="https://wa.link/21zsn2" className="btn-blue">
+          <a href="https://wa.link/21zsn2" target="_blank" className="btn-blue">
             Booking Sekarang
           </a>
         </div>

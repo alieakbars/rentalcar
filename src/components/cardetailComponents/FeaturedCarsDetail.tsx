@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import ButtonComponent from "../ButtonComponent";
 import { InputNumber, DatePicker } from "antd";
 import type { InputNumberProps, DatePickerProps } from "antd";
-import dayjs from "dayjs";
+import dayjs, { Dayjs } from "dayjs";
 
 import {
   RockingChair,
@@ -14,11 +14,8 @@ import {
   Heart,
   Fuel,
   CalendarDays,
+  ArrowUp10,
 } from "lucide-react";
-
-const onChange: InputNumberProps["onChange"] = (value) => {
-  console.log("changed", value);
-};
 
 interface FeaturedCarsDetailProps {
   id?: string;
@@ -27,6 +24,16 @@ interface FeaturedCarsDetailProps {
 const FeaturedCarsDetail: React.FC<FeaturedCarsDetailProps> = ({ id }) => {
   const cars: CarType[] = Cars;
   const [mobil, setMobil] = useState<CarType | null>(null);
+  const [qty, setQty] = useState(1);
+  const [transmisi, setTransmisi] = useState<any>(["Manual", 0]);
+  const [price, setPrice] = useState<any>(0);
+  const [tanggal, setTanggal] = useState<string>(dayjs().format("DD-MM-YYYY"));
+
+  const handleDateChange = (date: dayjs.Dayjs | null) => {
+    if (date) {
+      setTanggal(date.format("DD-MM-YYYY"));
+    }
+  };
 
   useEffect(() => {
     if (!id) return;
@@ -34,7 +41,24 @@ const FeaturedCarsDetail: React.FC<FeaturedCarsDetailProps> = ({ id }) => {
     const mobilId = parseInt(id);
     const found = cars.find((m) => m.id === mobilId);
     setMobil(found ?? null);
-  }, [id]);
+    setPrice((found?.price[transmisi[1]] ?? 0) * qty);
+  }, [transmisi, qty, id]);
+
+  const formattedCurrency = new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    minimumFractionDigits: 0,
+  }).format(price);
+
+  const handleSendWhatsApp = () => {
+    const phoneNumber = "6281269299521"; // ganti dengan nomor tujuan (pakai kode negara, tanpa tanda +)
+    const message = `Halo, saya ingin membooking Mobil ${mobil?.brand} dengan spesifikasi : Transmisi ${transmisi[0]}, Bahan bakar ${mobil?.fuel}  berjumlah ${qty} unit. Total Harga ${formattedCurrency} !`;
+
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+      message
+    )}`;
+    window.open(url, "_blank"); // buka di tab baru
+  };
 
   if (!mobil) {
     return <div>Mobil tidak ditemukan</div>;
@@ -49,20 +73,20 @@ const FeaturedCarsDetail: React.FC<FeaturedCarsDetailProps> = ({ id }) => {
 
       <div className="container relative py-16 md:py-20 lg:py-24">
         <div className="animate-fade-in">
-          <div className="grid grid-flow-col grid-col-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="row-span-2">
               {" "}
               <img
                 src={mobil.image[0]}
                 alt={mobil.name}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-64 md:h-full object-cover rounded-lg"
               />
             </div>
-            <div className="col-span-2">
+            <div className="flex flex-col space-y-4">
               <div className="card group animate-fade-in flex flex-col h-full">
                 <div className="p-4 flex flex-col justify-between flex-grow">
-                  <div className="flex justify-between items-start">
-                    <h3 className="text-lg text-neutral-700 font-semibold">
+                  <div className="flex justify-center items-start">
+                    <h3 className="text-2xl md:text-3xl text-neutral-700 font-semibold">
                       {mobil.name}
                     </h3>
                   </div>
@@ -100,8 +124,7 @@ const FeaturedCarsDetail: React.FC<FeaturedCarsDetailProps> = ({ id }) => {
                       val={mobil.transmission}
                       size="small"
                       onChange={(val, idx) => {
-                        console.log("Selected:", val); // "Manual"
-                        console.log("Index:", idx); // 0
+                        setTransmisi([val, idx]);
                       }}
                     />
                   </div>
@@ -109,14 +132,17 @@ const FeaturedCarsDetail: React.FC<FeaturedCarsDetailProps> = ({ id }) => {
                   <div className="mt-3 flex flex-row">
                     <div className="inline-flex flex-col">
                       <span className="inline-flex items-center px-2 py-1  text-neutral-700 rounded text-xs">
-                        <Antenna size={12} className="mr-1 text-primary-700" />
+                        <ArrowUp10
+                          size={12}
+                          className="mr-1 text-primary-700"
+                        />
                         Jumlah :
                       </span>
                       <InputNumber
                         min={1}
-                        max={10}
+                        // max={10}
                         defaultValue={1}
-                        onChange={onChange}
+                        onChange={(value) => setQty(value ?? 1)}
                         changeOnWheel
                         size="small"
                       />
@@ -124,26 +150,41 @@ const FeaturedCarsDetail: React.FC<FeaturedCarsDetailProps> = ({ id }) => {
 
                     <div className="inline-flex flex-col ml-4">
                       <span className="inline-flex items-center px-2 py-1  text-neutral-700 rounded text-xs">
-                        <Antenna size={12} className="mr-1 text-primary-700" />
+                        <CalendarDays
+                          size={12}
+                          className="mr-1 text-primary-700"
+                        />
                         Tanggal Mulai Sewa :
                       </span>
                       <DatePicker
                         defaultValue={dayjs()}
                         format={"DD-MM-YYYY"}
                         size="small"
+                        onChange={handleDateChange}
                       />
                     </div>
                   </div>
 
-                  <div className="mt-4 pt-4 border-t border-neutral-200 flex items-center justify-between">
+                  <div className="mt-4 pt-4 border-t border-neutral-200 items-center justify-between">
                     <div>
                       <span className="text-neutral-600 text-sm">
-                        Mulai dari{" "}
+                        <span className="text-2xl font-bold text-primary-700 mr-5">
+                          Total :
+                        </span>
+                        <span className="text-2xl font-bold text-primary-700">
+                          {formattedCurrency}
+                        </span>
                       </span>
                     </div>
-                    <a href="#" className="btn-blue">
-                      Rent Now
-                    </a>
+                    <div className="flex justify-center md:justify-start mt-4">
+                      <ButtonComponent
+                        label="Rent Now"
+                        type="primary"
+                        val={""}
+                        size="large"
+                        onClick={handleSendWhatsApp}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>

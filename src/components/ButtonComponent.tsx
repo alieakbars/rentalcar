@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Radio, Space } from "antd";
-import type { RadioChangeEvent } from 'antd';
+import { Radio, Space, Button } from "antd";
+import type { RadioChangeEvent } from "antd";
 
 interface ButtonComponentProps {
   label: string;
@@ -8,6 +8,7 @@ interface ButtonComponentProps {
   val: string | string[];
   size: "small" | "middle" | "large";
   onChange?: (value: string, index: number) => void;
+  onClick?: () => void; 
 }
 
 const ButtonComponent: React.FC<ButtonComponentProps> = ({
@@ -16,6 +17,7 @@ const ButtonComponent: React.FC<ButtonComponentProps> = ({
   val,
   size,
   onChange,
+  onClick,
 }) => {
   const options = Array.isArray(val) ? val : [val];
   const [picked, setPick] = useState<string>(options[0]);
@@ -44,6 +46,8 @@ const ButtonComponent: React.FC<ButtonComponentProps> = ({
         </Radio.Group>
       </Space>
     );
+  } else if (type === "primary") {
+    tipe = <Button type="primary" onClick={onClick} size={size}>{label}</Button>;
   }
 
   return tipe;

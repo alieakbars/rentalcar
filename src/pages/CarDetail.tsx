@@ -12,7 +12,7 @@ const CarsDetail = () => {
   const { id } = useParams();
 
   return (
-    <div className="flex flex-col min-h-screen bg-neutral-50">
+    <div className="">
       <main>
         <FeaturedCarsDetail id={id} />
       </main>
