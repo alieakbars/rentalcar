@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { Radio, Space  } from "antd";
+import { Radio, Space } from "antd";
+import type { RadioChangeEvent } from 'antd';
 
 interface ButtonComponentProps {
   label: string;
   type: string;
   val: string | string[];
   size: "small" | "middle" | "large";
+  onChange?: (value: string, index: number) => void;
 }
 
 const ButtonComponent: React.FC<ButtonComponentProps> = ({
@@ -13,24 +15,31 @@ const ButtonComponent: React.FC<ButtonComponentProps> = ({
   type,
   val,
   size,
+  onChange,
 }) => {
-  const [picked, setPick] = useState<string | string[]>(
-    Array.isArray(val) ? val[0] : val
-  );
-  console.log(val);
+  const options = Array.isArray(val) ? val : [val];
+  const [picked, setPick] = useState<string>(options[0]);
+
+  const handleChange = (e: RadioChangeEvent) => {
+    const selectedValue = e.target.value;
+    setPick(selectedValue);
+
+    if (onChange) {
+      const index = options.indexOf(selectedValue);
+      onChange(selectedValue, index);
+    }
+  };
 
   let tipe = null;
 
   if (type === "radio") {
     tipe = (
       <Space>
-        <Radio.Group
-          value={picked}
-          onChange={(e) => setPick(e.target.value)}
-          size={size}
-        >
-          {(val as string[]).map((elem) => (
-            <Radio.Button value={elem}>{elem}</Radio.Button>
+        <Radio.Group value={picked} onChange={handleChange} size={size}>
+          {(val as string[]).map((elem, index) => (
+            <Radio.Button key={index} value={elem}>
+              {elem}
+            </Radio.Button>
           ))}
         </Radio.Group>
       </Space>

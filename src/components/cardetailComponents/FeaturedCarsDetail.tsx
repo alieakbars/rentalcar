@@ -3,8 +3,9 @@ import { CarType } from "../../types/car";
 import Cars from "../../data/car";
 import { useEffect, useState } from "react";
 import ButtonComponent from "../ButtonComponent";
-import { InputNumber } from "antd";
-import type { InputNumberProps } from "antd";
+import { InputNumber, DatePicker } from "antd";
+import type { InputNumberProps, DatePickerProps } from "antd";
+import dayjs from "dayjs";
 
 import {
   RockingChair,
@@ -98,22 +99,40 @@ const FeaturedCarsDetail: React.FC<FeaturedCarsDetailProps> = ({ id }) => {
                       type="radio"
                       val={mobil.transmission}
                       size="small"
+                      onChange={(val, idx) => {
+                        console.log("Selected:", val); // "Manual"
+                        console.log("Index:", idx); // 0
+                      }}
                     />
                   </div>
 
-                  <div className="mt-3 flex flex-col">
-                    <span className="inline-flex items-center px-2 py-1  text-neutral-700 rounded text-xs">
-                      <Antenna size={12} className="mr-1 text-primary-700" />
-                      Pilih Transmisi :
-                    </span>
-                    <InputNumber
-                      min={1}
-                      max={10}
-                      defaultValue={1}
-                      onChange={onChange}
-                      changeOnWheel
-                      size="small"
-                    />
+                  <div className="mt-3 flex flex-row">
+                    <div className="inline-flex flex-col">
+                      <span className="inline-flex items-center px-2 py-1  text-neutral-700 rounded text-xs">
+                        <Antenna size={12} className="mr-1 text-primary-700" />
+                        Jumlah :
+                      </span>
+                      <InputNumber
+                        min={1}
+                        max={10}
+                        defaultValue={1}
+                        onChange={onChange}
+                        changeOnWheel
+                        size="small"
+                      />
+                    </div>
+
+                    <div className="inline-flex flex-col ml-4">
+                      <span className="inline-flex items-center px-2 py-1  text-neutral-700 rounded text-xs">
+                        <Antenna size={12} className="mr-1 text-primary-700" />
+                        Tanggal Mulai Sewa :
+                      </span>
+                      <DatePicker
+                        defaultValue={dayjs()}
+                        format={"DD-MM-YYYY"}
+                        size="small"
+                      />
+                    </div>
                   </div>
 
                   <div className="mt-4 pt-4 border-t border-neutral-200 flex items-center justify-between">
