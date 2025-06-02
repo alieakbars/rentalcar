@@ -16,7 +16,7 @@ const CarsDetail = () => {
     <div className="flex flex-col min-h-screen bg-neutral-50">
       <main>
         <FeaturedCarsDetail id={id} />
-        <Tab/>
+        <Tab id={id} />
       </main>
     </div>
   );

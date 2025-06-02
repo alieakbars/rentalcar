@@ -1,9 +1,9 @@
 import { CarType } from "../types/car";
 
-const cars: CarType[] = [
+const descriptionCar: CarType[] = [
   {
     id: 1,
-    name: "Toyota Avanza",
+    title: "Toyota Avanza",
     brand: "Toyota",
     transmission: ["Manual"],
     price: [300000],
@@ -263,4 +263,4 @@ const cars: CarType[] = [
   },
 ];
 
-export default cars;
+export default descriptionCar;
