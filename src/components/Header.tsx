@@ -86,10 +86,14 @@ const Header: React.FC = () => {
             <div className="flex items-center justify-between p-4 border-b">
               <a
                 href="#"
-                className="flex items-center font-bold text-xl text-primary-700"
+                className="flex items-center font-bold text-xl text-primary-700 mr-8"
               >
-                <Car className="mr-2 text-accent-500" size={24} />
-                <span>ICANRENT</span>
+                <img
+                  src="/muezza-logo.png"
+                  alt="Car Icon"
+                  className="mr-2 w-10 h-10 object-contain"
+                />
+                <span>Muezza RentCar Medan</span>
               </a>
               <button
                 className="rounded-md p-2 text-neutral-700 hover:bg-neutral-100"
