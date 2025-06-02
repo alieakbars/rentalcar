@@ -24,7 +24,7 @@ interface FeaturedCarsDetailProps {
 const FeaturedCarsDetail: React.FC<FeaturedCarsDetailProps> = ({ id }) => {
   const cars: CarType[] = Cars;
   const [mobil, setMobil] = useState<CarType | null>(null);
-  const [qty, setQty] = useState(1);
+  const [day, setDay] = useState(1);
   const [transmisi, setTransmisi] = useState<any>(["Manual", 0]);
   const [price, setPrice] = useState<any>(0);
   const [tanggal, setTanggal] = useState<string>(dayjs().format("DD-MM-YYYY"));
@@ -41,8 +41,8 @@ const FeaturedCarsDetail: React.FC<FeaturedCarsDetailProps> = ({ id }) => {
     const mobilId = parseInt(id);
     const found = cars.find((m) => m.id === mobilId);
     setMobil(found ?? null);
-    setPrice((found?.price[transmisi[1]] ?? 0) * qty);
-  }, [transmisi, qty, id]);
+    setPrice((found?.price[transmisi[1]] ?? 0) * day);
+  }, [transmisi, day, id]);
 
   const formattedCurrency = new Intl.NumberFormat("id-ID", {
     style: "currency",
@@ -52,7 +52,7 @@ const FeaturedCarsDetail: React.FC<FeaturedCarsDetailProps> = ({ id }) => {
 
   const handleSendWhatsApp = () => {
     const phoneNumber = "6281269299521"; // ganti dengan nomor tujuan (pakai kode negara, tanpa tanda +)
-    const message = `Halo, saya ingin membooking Mobil ${mobil?.brand} dengan spesifikasi : Transmisi ${transmisi[0]}, Bahan bakar ${mobil?.fuel}  berjumlah ${qty} unit. Total Harga ${formattedCurrency} !`;
+    const message = `Halo, saya ingin membooking Mobil ${mobil?.brand} dengan spesifikasi : Transmisi ${transmisi[0]}, Bahan bakar ${mobil?.fuel} selama ${day} hari. Total Harga ${formattedCurrency} !`;
 
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
       message
@@ -136,13 +136,13 @@ const FeaturedCarsDetail: React.FC<FeaturedCarsDetailProps> = ({ id }) => {
                           size={12}
                           className="mr-1 text-primary-700"
                         />
-                        Jumlah :
+                        Jumlah Hari:
                       </span>
                       <InputNumber
                         min={1}
                         // max={10}
                         defaultValue={1}
-                        onChange={(value) => setQty(value ?? 1)}
+                        onChange={(value) => setDay(value ?? 1)}
                         changeOnWheel
                         size="small"
                       />

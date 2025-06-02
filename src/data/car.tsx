@@ -53,7 +53,7 @@ const cars: CarType[] = [
     price: [375000, 425000],
     image: ["/image/rent-avanza-600x400.png"],
     seat: "7 Seater",
-    year: "2022 - 2023",
+    year: "2022 - 2025",
     fuel: "Bensin",
   },
   {
@@ -64,7 +64,7 @@ const cars: CarType[] = [
     price: [375000, 425000],
     image: ["/image/xenia-2022.png"],
     seat: "7 Seater",
-    year: "2022 - 2023",
+    year: "2022 - 2025",
     fuel: "Bensin",
   },
   {
@@ -174,7 +174,7 @@ const cars: CarType[] = [
     price: [400000, 450000],
     image: ["/image/terios-x.png"],
     seat: "5 Kursi",
-    year: "2022 - 2023",
+    year: "2022 - 2025",
     fuel: "Bensin",
   },
   {

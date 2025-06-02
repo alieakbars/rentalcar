@@ -43,6 +43,20 @@ const Contact = () => {
                   Rental Mobil Medan Muezza
                 </p>
               </a>
+              <a
+                href="https://www.tiktok.com/@rentalmobilmedanmuezza?is_from_webapp=1&sender_device=pc"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <p className="text-gray-600 text-xl ">
+                  <img
+                    src="/image/tiktok.png"
+                    alt="Logo"
+                    className="w-15 h-10 inline-block"
+                  />
+                  Rental Mobil Medan Muezza
+                </p>
+              </a>
             </div>
             <img src="/image/about.jpeg" alt="Logo" />
           </div>
