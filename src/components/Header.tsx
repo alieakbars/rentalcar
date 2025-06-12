@@ -65,7 +65,11 @@ const Header: React.FC = () => {
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
-            <a href="https://wa.link/21zsn2" className="btn-blue">
+            <a
+              href="https://wa.link/21zsn2"
+              className="btn-blue"
+              target="_blank"
+            >
               Book Now
             </a>
           </div>

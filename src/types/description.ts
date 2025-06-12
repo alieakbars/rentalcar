@@ -1,4 +1,4 @@
-export interface Desc {
+export interface DescripotionType {
   id: number;
   title: string;
   d1: string;

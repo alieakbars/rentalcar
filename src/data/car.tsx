@@ -86,7 +86,7 @@ const cars: CarType[] = [
     transmission: ["Manual", "Automatic"],
     price: [500000, 550000],
     image: ["/image/INNOVA-REBORN-PNG-400x229.png"],
-    seat: "5 Kursi",
+    seat: "7 Seater",
     year: "2020 - 2023",
     fuel: "Bensin",
     description:
@@ -99,7 +99,7 @@ const cars: CarType[] = [
     transmission: ["Manual", "Automatic"],
     price: [550000, 600000],
     image: ["/image/INNOVA-REBORN-PNG-400x229.png"],
-    seat: "5 Kursi",
+    seat: "7 Seater",
     year: "2020 - 2023",
     fuel: "Solar",
     description:
@@ -112,7 +112,7 @@ const cars: CarType[] = [
     transmission: ["Automatic"],
     price: [700000],
     image: ["/image/Zenix.png"],
-    seat: "5 Kursi",
+    seat: "7 Seater",
     year: "2023",
     fuel: "Solar",
     description:
@@ -125,7 +125,7 @@ const cars: CarType[] = [
     transmission: ["Manual", "Automatic"],
     price: [400000, 450000],
     image: ["/image/livina.png"],
-    seat: "5 Kursi",
+    seat: "7 Seater",
     year: "2021 - 2023",
     fuel: "Bensin",
     description:
@@ -138,7 +138,7 @@ const cars: CarType[] = [
     transmission: ["Manual", "Automatic"],
     price: [400000, 450000],
     image: ["/image/xpander.png"],
-    seat: "5 Kursi",
+    seat: "7 Seater",
     year: "2021 - 2023",
     fuel: "Bensin",
     description:
@@ -151,7 +151,7 @@ const cars: CarType[] = [
     transmission: ["Automatic"],
     price: [450000],
     image: ["/image/xl7.png"],
-    seat: "5 Kursi",
+    seat: "7 Seater",
     year: "2023",
     fuel: "Bensin",
     description:
@@ -164,7 +164,7 @@ const cars: CarType[] = [
     transmission: ["Manual", "Automatic"],
     price: [300000, 350000],
     image: ["/image/brio.png"],
-    seat: "5 Kursi",
+    seat: "4 Seater",
     year: "2022",
     fuel: "Bensin",
     description:
@@ -177,7 +177,7 @@ const cars: CarType[] = [
     transmission: ["Manual", "Automatic"],
     price: [300000, 350000],
     image: ["/image/calya.png"],
-    seat: "5 Kursi",
+    seat: "5 Seater",
     year: "2019 - 2023",
     fuel: "Bensin",
     description:
@@ -190,7 +190,7 @@ const cars: CarType[] = [
     transmission: ["Manual", "Automatic"],
     price: [300000, 350000],
     image: ["/image/sigra.png"],
-    seat: "5 Kursi",
+    seat: "5 Seater",
     year: "2019 - 2023",
     fuel: "Bensin",
     description:
@@ -203,7 +203,7 @@ const cars: CarType[] = [
     transmission: ["Manual", "Automatic"],
     price: [400000, 450000],
     image: ["/image/terios-x.png"],
-    seat: "5 Kursi",
+    seat: "7 Seater",
     year: "2022 - 2025",
     fuel: "Bensin",
     description:
@@ -216,7 +216,7 @@ const cars: CarType[] = [
     transmission: ["Manual", "Automatic"],
     price: [300000, 350000],
     image: ["/image/Ayla.png"],
-    seat: "5 Kursi",
+    seat: "4 Seater",
     year: "2019 - 2023",
     fuel: "Bensin",
     description:
@@ -229,7 +229,7 @@ const cars: CarType[] = [
     transmission: ["Manual", "Automatic"],
     price: [300000, 350000],
     image: ["/image/agya.png"],
-    seat: "5 Kursi",
+    seat: "4 Seater",
     year: "2019 - 2023",
     fuel: "Bensin",
     description:
@@ -242,7 +242,7 @@ const cars: CarType[] = [
     transmission: ["Automatic"],
     price: [450000],
     image: ["/image/brv.png"],
-    seat: "5 Kursi",
+    seat: "7 Seater",
     year: "2022 - 2023",
     fuel: "Bensin",
     description:
@@ -252,10 +252,10 @@ const cars: CarType[] = [
     id: 20,
     name: "Mobilio",
     brand: "Honda",
-    transmission: ["Automatic"],
+    transmission: ["Manual", "Automatic"],
     price: [350000, 400000],
     image: ["/image/mobilio.png"],
-    seat: "5 Kursi",
+    seat: "5 Seater",
     year: "2022 - 2023",
     fuel: "Bensin",
     description:

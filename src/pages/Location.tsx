@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Locations from "../components/locationComponents/Locations";
+import Description from "../components/locationComponents/Description";
 
 const Location = () => {
   return (
-    <div className="flex flex-col bg-neutral-50">
+    <div className="flex flex-col min-h-screen bg-neutral-50">
+      <Description />
       <Locations />
     </div>
   );

@@ -1,12 +1,20 @@
-import React from 'react';
+import FeaturedCarsDetail from "../components/cardetailComponents/FeaturedCarsDetail";
+import { useParams } from "react-router-dom";
+
+export interface CarFilter {
+  brand: string;
+  transmission: string;
+  year: string;
+}
 
 const About = () => {
+  const { id } = useParams();
+
   return (
-    <div className="container p-8">
-      <h1 className="text-3xl font-bold mb-4">Tentang Kami</h1>
-      <p>
-        Ini adalah halaman tentang kami. Di sini kamu bisa menjelaskan visi misi, tim, atau informasi lain tentang perusahaan kamu.
-      </p>
+    <div className="flex flex-col min-h-screen bg-neutral-50">
+      <main>
+        <FeaturedCarsDetail id={id} />
+      </main>
     </div>
   );
 };
