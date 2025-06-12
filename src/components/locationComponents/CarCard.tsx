@@ -42,40 +42,50 @@ const CarCard: React.FC<CarCardProps> = ({ car }) => {
           </span>
         </div>
 
-        <div className="mt-3 flex flex-wrap gap-1">
-          <span className="inline-flex items-center px-2 py-1 bg-neutral-100 text-neutral-700 rounded text-xs">
-            <CalendarDays size={12} className="mr-1 text-primary-700" />
-            {car.year}
-          </span>
+        <div className="flex justify-center items-center mt-2">
+          <div className="flex gap-1">
+            <span className="inline-flex items-center p-1 bg-neutral-100 text-neutral-700 rounded text-xs">
+              <CalendarDays size={12} className="mr-1 text-primary-700" />
+              {car.year}
+            </span>
 
-          {/* <span className="inline-flex items-center px-2 py-1 bg-neutral-100 text-neutral-700 rounded text-xs">
+            {/* <span className="inline-flex items-center px-2 py-1 bg-neutral-100 text-neutral-700 rounded text-xs">
             <Antenna size={12} className="mr-1 text-primary-700" />
             {car.transmission.join(", ")}
           </span> */}
 
-          <span className="inline-flex items-center px-2 py-1 bg-neutral-100 text-neutral-700 rounded text-xs">
-            <Fuel size={12} className="mr-1 text-primary-700" />
-            {car.fuel}
-          </span>
+            <span className="inline-flex items-center px-2 py-1 bg-neutral-100 text-neutral-700 rounded text-xs">
+              <Fuel size={12} className="mr-1 text-primary-700" />
+              {car.fuel}
+            </span>
 
-          <span className="inline-flex items-center px-2 py-1 bg-neutral-100 text-neutral-700 rounded text-xs">
-            <RockingChair size={12} className="mr-1 text-primary-700" />
-            {car.seat}
-          </span>
+            <span className="inline-flex items-center px-2 py-1 bg-neutral-100 text-neutral-700 rounded text-xs">
+              <RockingChair size={12} className="mr-1 text-primary-700" />
+              {car.seat}
+            </span>
+          </div>
         </div>
 
         <div className="flex flex-col text-center item mt-2">
           <span className="text-sm text-primary-700">Lepas Kunci</span>
           {car?.transmission.includes("Manual") ? (
             <span className="text-sm text-primary-700">
-              {(car?.transmission[0] ? car?.transmission[0] :car?.transmission[1])} : {formattedCurrency(car.price[0] ? car.price[0] : car.price[1])}/Hari
+              {car?.transmission[0]
+                ? car?.transmission[0]
+                : car?.transmission[1]}{" "}
+              : {formattedCurrency(car.price[0] ? car.price[0] : car.price[1])}
+              /Hari
             </span>
           ) : null}
           {car?.transmission.includes("Automatic") ? (
             <span className="text-sm text-primary-700">
-              {(car?.transmission[1] ? car?.transmission[1] :car?.transmission[0])} : {formattedCurrency(car.price[1] ? car.price[1] : car.price[0])}/hari
+              {car?.transmission[1]
+                ? car?.transmission[1]
+                : car?.transmission[0]}{" "}
+              : {formattedCurrency(car.price[1] ? car.price[1] : car.price[0])}
+              /hari
             </span>
-          ): null}
+          ) : null}
         </div>
 
         <div className="flex flex-col text-center item mt-2">
@@ -84,11 +94,17 @@ const CarCard: React.FC<CarCardProps> = ({ car }) => {
           </span>
           {car.transmission.includes("Manual") ? (
             <span className="text-sm text-primary-700">
-              {formattedCurrency(car.price[0] ? car.price[0] + 150000 : car.price[1] + 150000)}/Hari
+              {formattedCurrency(
+                car.price[0] ? car.price[0] + 150000 : car.price[1] + 150000
+              )}
+              /Hari
             </span>
           ) : (
             <span className="text-sm text-primary-700">
-              {formattedCurrency(car.price[1] ? car.price[1] + 150000 : car.price[0] + 150000)}/Hari
+              {formattedCurrency(
+                car.price[1] ? car.price[1] + 150000 : car.price[0] + 150000
+              )}
+              /Hari
             </span>
           )}
           {/* {car.transmission.includes("Automatic") && (
@@ -104,11 +120,17 @@ const CarCard: React.FC<CarCardProps> = ({ car }) => {
           </span>
           {car.transmission.includes("Manual") ? (
             <span className="text-sm text-primary-700">
-              {formattedCurrency(car.price[0] ? car.price[0] + 200000 : car.price[1] + 200000)}/Hari
+              {formattedCurrency(
+                car.price[0] ? car.price[0] + 200000 : car.price[1] + 200000
+              )}
+              /Hari
             </span>
           ) : (
             <span className="text-sm text-primary-700">
-              {formattedCurrency(car.price[1] ? car.price[1] + 200000 : car.price[0] + 200000)}/Hari
+              {formattedCurrency(
+                car.price[1] ? car.price[1] + 200000 : car.price[0] + 200000
+              )}
+              /Hari
             </span>
           )}
           {/* {car.transmission.includes("Automatic") && (

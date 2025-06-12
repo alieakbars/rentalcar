@@ -5,29 +5,31 @@ const Tnc: React.FC = () => {
   return (
     <div>
       <p className="text-sm ml-5">
-        1. <strong>Car + Driver + Fuel (12 hours)</strong> In-City use only
-        Price includes car, driver salary and petrol Usage up to 12 hours, It
-        starts when the renter meets our driver.
+        1. <strong>Mobil + Sopir (12 jam)</strong> Hanya untuk penggunaan dalam
+        kota. Harga sudah termasuk mobil, gaji sopir, dan bahan bakar.
+        Penggunaan hingga 12 jam. Waktu mulai dihitung saat penyewa bertemu
+        dengan sopir kami.
       </p>
       <p className="text-sm ml-5">
-        2. <strong>Car + Driver + Fuel (Full Day)</strong> In-City use only
-        Price includes car, driver salary and petrol Use up to 12 hours or until
-        23:59.
+        2. <strong>Mobil + Sopir (Sehari Penuh)</strong> Hanya untuk penggunaan
+        dalam kota. Harga sudah termasuk mobil, gaji sopir, dan bahan bakar.
+        Penggunaan hingga 12 jam atau sampai pukul 23:59.
       </p>
       <p className="text-sm mt-2 mb-2">
-        <strong>Part 1 & 2 Price Not Included</strong> Parking fees, toll fees,
-        driver's meal allowance, Driver accommodation costs (if needed) Use
-        outside the city (additional fees apply).
+        <strong>Harga pada poin 1 & 2 belum termasuk:</strong> Biaya parkir,
+        biaya tol, uang makan sopir, biaya akomodasi sopir (jika diperlukan),
+        dan penggunaan di luar kota (akan dikenakan biaya tambahan).
       </p>
       <p className="text-sm ml-5">
-        3. <strong>All in (Full Day)</strong>
+        3. <strong>All in (Sehari Penuh)</strong>
       </p>
       <p className="text-sm ml-6">
-        In-City use only Price includes car, driver salary and petrol Use up to
-        12 hours or until 23:59.
+        Hanya untuk penggunaan dalam kota. Harga sudah termasuk mobil, gaji
+        sopir, dan bahan bakar. Penggunaan hingga 12 jam atau sampai pukul
+        23:59.
       </p>
       <p className="text-sm ml-6">
-        Price Includes Parking Fees, Toll Fees, Driver Meal Allowance.
+        Harga sudah termasuk biaya parkir, biaya tol, dan uang makan sopir.
       </p>
     </div>
   );
