@@ -2,10 +2,6 @@ import React, { useState } from "react";
 import Hero from "../components/carsComponents/Hero";
 import FeaturedCars from "../components/carsComponents/FeaturedCars";
 import Services from "../components/carsComponents/Services";
-import Locations from "../components/locationComponents/Locations";
-import Testimonials from "../components/carsComponents/Testimonials";
-import FAQ from "../components/carsComponents/FAQ";
-import Newsletter from "../components/carsComponents/Newsletter";
 
 export interface CarFilter {
   brand: string;

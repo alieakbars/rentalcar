@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import Locations from "../components/locationComponents/Locations";
 import Description from "../components/locationComponents/Description";
 

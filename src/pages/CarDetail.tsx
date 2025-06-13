@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import FeaturedCarsDetail from "../components/cardetailComponents/FeaturedCarsDetail";
 import Tab from "../components/cardetailComponents/Tab";
 import { useParams } from "react-router-dom";
