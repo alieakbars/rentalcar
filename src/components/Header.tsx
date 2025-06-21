@@ -47,7 +47,7 @@ const Header: React.FC = () => {
             <div className="hidden md:flex items-center space-x-1">
               {[
                 { name: "Home", link: "/" },
-                { name: "Location", link: "/location" },
+                { name: "Mobil + Driver", link: "/location" },
                 { name: "Contact Us", link: "/contact" },
                 // {name:"Vehicle Types",link:"#"},
                 // {name:"For Business",link:"#"}
@@ -110,7 +110,7 @@ const Header: React.FC = () => {
               <div className="space-y-2">
                 {[
                   { name: "Home", link: "/" },
-                  { name: "Location", link: "/location" },
+                  { name: "Mobil + Driver", link: "/location" },
                   { name: "Contact Us", link: "/contact" },
                   // {name:"Vehicle Types",link:"#"},
                   // {name:"For Business",link:"#"}

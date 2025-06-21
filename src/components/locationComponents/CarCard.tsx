@@ -38,7 +38,7 @@ const CarCard: React.FC<CarCardProps> = ({ car }) => {
         <div className="text-center">
           <h3 className="text-lg font-semibold">{car.name}</h3>
           <span className="text-lg font-bold text-primary-700">
-            {formattedCurrency(car.price[0])}/Hari
+            {formattedCurrency(car.price1)}/Hari
           </span>
         </div>
 
@@ -66,7 +66,7 @@ const CarCard: React.FC<CarCardProps> = ({ car }) => {
           </div>
         </div>
 
-        <div className="flex flex-col text-center item mt-2">
+        {/* <div className="flex flex-col text-center item mt-2">
           <span className="text-sm text-primary-700">Lepas Kunci</span>
           {car?.transmission.includes("Manual") ? (
             <span className="text-sm text-primary-700">
@@ -86,58 +86,26 @@ const CarCard: React.FC<CarCardProps> = ({ car }) => {
               /hari
             </span>
           ) : null}
-        </div>
+        </div> */}
 
         <div className="flex flex-col text-center item mt-2">
           <span className="text-sm text-primary-700">
             Mobil + Driver Dalam Kota
           </span>
-          {car.transmission.includes("Manual") ? (
-            <span className="text-sm text-primary-700">
-              {formattedCurrency(
-                car.price[0] ? car.price[0] + 150000 : car.price[1] + 150000
-              )}
-              /Hari
-            </span>
-          ) : (
-            <span className="text-sm text-primary-700">
-              {formattedCurrency(
-                car.price[1] ? car.price[1] + 150000 : car.price[0] + 150000
-              )}
-              /Hari
-            </span>
-          )}
-          {/* {car.transmission.includes("Automatic") && (
-            <span className="text-sm text-primary-700">
-              {car.transmission[1]} : {formattedCurrency(car.price[1])}/hari
-            </span>
-          )} */}
+          <span className="text-sm text-primary-700">
+            {formattedCurrency(car.price1 + 150000)}
+            /Hari
+          </span>
         </div>
 
         <div className="flex flex-col text-center item mt-2">
           <span className="text-sm text-primary-700">
             Mobil + Driver Luar Kota
           </span>
-          {car.transmission.includes("Manual") ? (
-            <span className="text-sm text-primary-700">
-              {formattedCurrency(
-                car.price[0] ? car.price[0] + 200000 : car.price[1] + 200000
-              )}
-              /Hari
-            </span>
-          ) : (
-            <span className="text-sm text-primary-700">
-              {formattedCurrency(
-                car.price[1] ? car.price[1] + 200000 : car.price[0] + 200000
-              )}
-              /Hari
-            </span>
-          )}
-          {/* {car.transmission.includes("Automatic") && (
-            <span className="text-sm text-primary-700">
-              {car.transmission[1]} : {formattedCurrency(car.price[1])}/hari
-            </span>
-          )} */}
+          <span className="text-sm text-primary-700">
+            {formattedCurrency(car.price1 + 200000)}
+            /Hari
+          </span>
         </div>
 
         <div className="p-2 border-t border-neutral-200 items-center text-center">

@@ -4,6 +4,7 @@ export interface CarType {
   brand: string;
   transmission: string[];
   price: number[];
+  price1: number;
   image: string[];
   seat: string;
   year: string;
