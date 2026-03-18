@@ -1,0 +1,10 @@
+# Izinkan semua search engine untuk mengindeks website
+User-agent: *
+Allow: /
+
+# Larang indeks untuk folder admin atau rahasia jika ada
+Disallow: /admin/
+Disallow: /private/
+
+# Beritahu lokasi sitemap Anda
+Sitemap: https://rentalmobilmedanmuezza.com/sitemap.xml
