@@ -52,7 +52,7 @@ const FeaturedCarsDetail: React.FC<FeaturedCarsDetailProps> = ({ id }) => {
 
   const handleSendWhatsApp = () => {
     const phoneNumber = "6281269299521"; // ganti dengan nomor tujuan (pakai kode negara, tanpa tanda +)
-    const message = `Halo, saya ingin membooking Mobil ${mobil?.brand} dengan spesifikasi : Transmisi ${transmisi[0]}, Bahan bakar ${mobil?.fuel} selama ${day} hari. Total Harga ${formattedCurrency} !`;
+    const message = `Halo, saya ingin membooking Mobil ${mobil?.name} dengan spesifikasi : Transmisi ${transmisi[0]}, Bahan bakar ${mobil?.fuel} selama ${day} hari. Total Harga ${formattedCurrency} !`;
 
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
       message
