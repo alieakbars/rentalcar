@@ -9,11 +9,12 @@ export interface CarFilter {
 
 const About = () => {
   const { id } = useParams();
+    const arrayID = [id!, 'mobil_driver'];
 
   return (
     <div className="flex flex-col min-h-screen bg-neutral-50">
       <main>
-        <FeaturedCarsDetail id={id} />
+        <FeaturedCarsDetail id={arrayID} />
       </main>
     </div>
   );

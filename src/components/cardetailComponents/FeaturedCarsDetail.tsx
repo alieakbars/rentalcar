@@ -3,22 +3,23 @@ import { CarType } from "../../types/car";
 import Cars from "../../data/car";
 import { useEffect, useState } from "react";
 import ButtonComponent from "../ButtonComponent";
-import { InputNumber, DatePicker } from "antd";
+import { InputNumber, DatePicker, Dropdown, Space } from "antd";
 import type { InputNumberProps, DatePickerProps } from "antd";
 import dayjs, { Dayjs } from "dayjs";
+import type { MenuProps } from "antd";
+import { Helmet } from "react-helmet-async";
 
 import {
   RockingChair,
   Antenna,
-  Check,
-  Heart,
   Fuel,
   CalendarDays,
   ArrowUp10,
+  ChevronDown,
 } from "lucide-react";
 
 interface FeaturedCarsDetailProps {
-  id?: string;
+  id?: (string | number)[];
 }
 
 const FeaturedCarsDetail: React.FC<FeaturedCarsDetailProps> = ({ id }) => {
@@ -28,6 +29,8 @@ const FeaturedCarsDetail: React.FC<FeaturedCarsDetailProps> = ({ id }) => {
   const [transmisi, setTransmisi] = useState<any>(["Manual", 0]);
   const [price, setPrice] = useState<any>(0);
   const [tanggal, setTanggal] = useState<string>(dayjs().format("DD-MM-YYYY"));
+  const [additionalPrice, setAdditionalPrice] = useState(0);
+  const [selectedLayanan, setSelectedLayanan] = useState("Pilih Layanan");
 
   const handleDateChange = (date: dayjs.Dayjs | null) => {
     if (date) {
@@ -35,14 +38,34 @@ const FeaturedCarsDetail: React.FC<FeaturedCarsDetailProps> = ({ id }) => {
     }
   };
 
+  const items: MenuProps["items"] = [
+    { key: "mobil_driver_dalam_kota", label: "Mobil + Driver dalam kota" },
+    { key: "mobil_driver_luar_kota", label: "Mobil + Driver luar kota" },
+  ];
+
+  const handleMenuClick: MenuProps["onClick"] = (e) => {
+    const extra = e.key === "mobil_driver_dalam_kota" ? 150000 : 200000;
+
+    // Update state tambahan & label
+    setAdditionalPrice(extra);
+    setSelectedLayanan(
+      e.key === "mobil_driver_dalam_kota"
+        ? "Mobil + Driver Dalam Kota"
+        : "Mobil + Driver Luar Kota",
+    );
+  };
+  const mode = String(id?.[1]);
   useEffect(() => {
     if (!id) return;
 
-    const mobilId = parseInt(id);
+    const mobilId = parseInt(String(id?.[0]));
     const found = cars.find((m) => m.id === mobilId);
     setMobil(found ?? null);
-    setPrice((found?.price[transmisi[1]] ?? 0) * day);
-  }, [transmisi, day, id]);
+    const basePrice = found?.price[transmisi[1]] ?? 0;
+    const totalPrice = (basePrice + additionalPrice) * day;
+
+    setPrice(totalPrice);
+  }, [transmisi, day, id, additionalPrice]);
 
   const formattedCurrency = new Intl.NumberFormat("id-ID", {
     style: "currency",
@@ -50,12 +73,17 @@ const FeaturedCarsDetail: React.FC<FeaturedCarsDetailProps> = ({ id }) => {
     minimumFractionDigits: 0,
   }).format(price);
 
+  const isRentDisabled =
+    mode === "mobil_driver" && selectedLayanan === "Pilih Layanan";
+
   const handleSendWhatsApp = () => {
     const phoneNumber = "6281269299521"; // ganti dengan nomor tujuan (pakai kode negara, tanpa tanda +)
-    const message = `Halo, saya ingin membooking Mobil ${mobil?.name} dengan spesifikasi : Transmisi ${transmisi[0]}, Bahan bakar ${mobil?.fuel} selama ${day} hari. Total Harga ${formattedCurrency} !`;
+    const message = `Halo, saya ingin membooking Mobil ${mobil?.name} ${
+      mode === "mobil_driver" ? `(${selectedLayanan})` : ""
+    } dengan spesifikasi : Transmisi ${transmisi[0]}, Bahan bakar ${mobil?.fuel} selama ${day} hari. Total Harga ${formattedCurrency} !`;
 
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-      message
+      message,
     )}`;
     window.open(url, "_blank"); // buka di tab baru
   };
@@ -66,6 +94,17 @@ const FeaturedCarsDetail: React.FC<FeaturedCarsDetailProps> = ({ id }) => {
 
   return (
     <section className="relative bg-gradient-to-r from-primary-700 to-primary-800 text-white overflow-hidden">
+      <Helmet>
+        <title>{`Sewa ${mobil.name} Medan ${mode === "mobil_driver" ? "dengan Driver" : "Lepas Kunci"} - Muezza`}</title>
+        <meta
+          name="description"
+          content={`Sewa mobil ${mobil.name} di Medan. Kondisi prima, tahun ${mobil.year}, bahan bakar ${mobil.fuel}. Harga terbaik ${formattedCurrency}. Hubungi Muezza Rental sekarang!`}
+        />
+        <link
+          rel="canonical"
+          href={`https://rentalmobilmedanmuezza.com/${mode}/${id?.[0]}`}
+        />
+      </Helmet>
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=1600')] bg-cover bg-center opacity-20"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-primary-700 to-primary-800 opacity-80"></div>
@@ -89,7 +128,6 @@ const FeaturedCarsDetail: React.FC<FeaturedCarsDetailProps> = ({ id }) => {
                       {mobil.name}
                     </h3>
                   </div>
-
                   <div className="mt-3 flex flex-wrap gap-2">
                     <span className="inline-flex items-center px-2 py-1 bg-neutral-100 text-neutral-700 rounded text-xs">
                       <CalendarDays
@@ -111,7 +149,6 @@ const FeaturedCarsDetail: React.FC<FeaturedCarsDetailProps> = ({ id }) => {
                       {mobil.seat}
                     </span>
                   </div>
-
                   <div className="mt-3 flex flex-col">
                     <span className="inline-flex items-center px-2 py-1  text-neutral-700 rounded text-xs">
                       <Antenna size={12} className="mr-1 text-primary-700" />
@@ -127,7 +164,36 @@ const FeaturedCarsDetail: React.FC<FeaturedCarsDetailProps> = ({ id }) => {
                       }}
                     />
                   </div>
+                  {mode === "mobil_driver" && (
+                    <div className="mt-3 flex flex-col">
+                      <span className="inline-flex items-center px-2 py-1 text-neutral-700 rounded text-xs">
+                        <Antenna size={12} className="mr-1 text-primary-700" />
+                        Pilih Layanan :
+                      </span>
 
+                      <Dropdown
+                        menu={{
+                          items,
+                          onClick: handleMenuClick,
+                          selectable: true,
+                        }}
+                        trigger={["click"]}
+                      >
+                        <button
+                          type="button"
+                          className="mt-1 flex justify-between items-center px-2 py-1 border border-neutral-300 rounded text-[11px] text-neutral-700 bg-white hover:border-primary-700 transition-colors w-full md:w-48"
+                        >
+                          <span className="truncate">
+                            {selectedLayanan || "Pilih Layanan"}
+                          </span>
+                          <ChevronDown
+                            size={12}
+                            className="ml-2 flex-shrink-0"
+                          />
+                        </button>
+                      </Dropdown>
+                    </div>
+                  )}
                   <div className="mt-3 flex flex-row">
                     <div className="inline-flex flex-col">
                       <span className="inline-flex items-center px-2 py-1  text-neutral-700 rounded text-xs">
@@ -163,7 +229,6 @@ const FeaturedCarsDetail: React.FC<FeaturedCarsDetailProps> = ({ id }) => {
                       />
                     </div>
                   </div>
-
                   <div className="mt-4 pt-4 border-t border-neutral-200 items-center justify-between">
                     <div>
                       <span className="text-neutral-600 text-sm">
@@ -182,6 +247,7 @@ const FeaturedCarsDetail: React.FC<FeaturedCarsDetailProps> = ({ id }) => {
                         val={""}
                         size="large"
                         onClick={handleSendWhatsApp}
+                        disabled={isRentDisabled} // Tambahkan baris ini
                       />
                     </div>
                   </div>

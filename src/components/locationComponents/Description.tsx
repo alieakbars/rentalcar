@@ -3,6 +3,7 @@ import { LocationDescriptionType } from "../../types/locationDescription";
 import locationDescription from "../../data/locationDescription";
 import CarCard from "./CarCard";
 import cars from "../../data/car";
+import { Link } from "react-router-dom";
 
 const Description: React.FC = () => {
   const descriptions: LocationDescriptionType[] | null = locationDescription;
@@ -30,7 +31,7 @@ const Description: React.FC = () => {
                   <li key={idx} className="text-neutral-600 mb-2">
                     {item}
                   </li>
-                )
+                ),
               )}
             </ul>
             <div className="mt-6 bg-primary-50 rounded-xl p-5">
@@ -52,11 +53,13 @@ const Description: React.FC = () => {
                   <li key={idx} className="text-neutral-600 mb-2">
                     {item}
                   </li>
-                )
+                ),
               )}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 mt-4">
                 {cars.map((car) => (
-                  <CarCard key={car.id} car={car} />
+                  <Link to={`/mobil_driver/${car.id}`} className="no-underline" key={car.id}>
+                    <CarCard key={car.id} car={car} />
+                  </Link>
                 ))}
               </div>
             </div>
@@ -79,7 +82,7 @@ const Description: React.FC = () => {
                   <li key={idx} className="text-neutral-600 mb-2">
                     {item}
                   </li>
-                )
+                ),
               )}
             </ul>
           </div>

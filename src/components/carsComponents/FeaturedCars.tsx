@@ -94,7 +94,7 @@ const FeaturedCars: React.FC<FeaturedCarsProps> = ({ filter }) => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredCars.map((car) => (
-            <Link to={`/${car.id}`} className="no-underline" key={car.id}>
+            <Link to={`/mobil/${car.id}`} className="no-underline" key={car.id}>
               <CarCard key={car.id} car={car} />
             </Link>
           ))}

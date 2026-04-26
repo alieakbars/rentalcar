@@ -8,7 +8,9 @@ interface ButtonComponentProps {
   val: string | string[];
   size: "small" | "middle" | "large";
   onChange?: (value: string, index: number) => void;
-  onClick?: () => void; 
+  onClick?: () => void;
+  // 1. Tambahkan prop disabled di interface
+  disabled?: boolean; 
 }
 
 const ButtonComponent: React.FC<ButtonComponentProps> = ({
@@ -18,6 +20,7 @@ const ButtonComponent: React.FC<ButtonComponentProps> = ({
   size,
   onChange,
   onClick,
+  disabled, // 2. Ambil dari props
 }) => {
   const options = Array.isArray(val) ? val : [val];
   const [picked, setPick] = useState<string>(options[0]);
@@ -37,7 +40,13 @@ const ButtonComponent: React.FC<ButtonComponentProps> = ({
   if (type === "radio") {
     tipe = (
       <Space>
-        <Radio.Group value={picked} onChange={handleChange} size={size}>
+        {/* 3. Tambahkan disabled ke Radio.Group agar semua pilihan mati */}
+        <Radio.Group 
+          value={picked} 
+          onChange={handleChange} 
+          size={size} 
+          disabled={disabled}
+        >
           {(val as string[]).map((elem, index) => (
             <Radio.Button key={index} value={elem}>
               {elem}
@@ -47,7 +56,17 @@ const ButtonComponent: React.FC<ButtonComponentProps> = ({
       </Space>
     );
   } else if (type === "primary") {
-    tipe = <Button type="primary" onClick={onClick} size={size}>{label}</Button>;
+    // 4. Tambahkan disabled ke Button Ant Design
+    tipe = (
+      <Button 
+        type="primary" 
+        onClick={onClick} 
+        size={size} 
+        disabled={disabled}
+      >
+        {label}
+      </Button>
+    );
   }
 
   return tipe;

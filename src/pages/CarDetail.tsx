@@ -9,12 +9,16 @@ export interface CarFilter {
 }
 
 const CarsDetail = () => {
-  const { id } = useParams();
+  const { mode, id } = useParams();
+
+  // Jika mode kosong (karena akses /1), berikan default 'mobil'
+  const currentMode = mode || "mobil";
+  const arrayID = [id!, currentMode];
 
   return (
     <div className="flex flex-col min-h-screen bg-neutral-50">
       <main>
-        <FeaturedCarsDetail id={id} />
+        <FeaturedCarsDetail id={arrayID} />
         <Tab id={id} />
       </main>
     </div>
