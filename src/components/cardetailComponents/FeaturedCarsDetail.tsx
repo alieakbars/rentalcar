@@ -80,7 +80,7 @@ const FeaturedCarsDetail: React.FC<FeaturedCarsDetailProps> = ({ id }) => {
     const phoneNumber = "6281269299521"; // ganti dengan nomor tujuan (pakai kode negara, tanpa tanda +)
     const message = `Halo, saya ingin membooking Mobil ${mobil?.name} ${
       mode === "mobil_driver" ? `(${selectedLayanan})` : ""
-    } dengan spesifikasi : Transmisi ${transmisi[0]}, Bahan bakar ${mobil?.fuel} selama ${day} hari. Total Harga ${formattedCurrency} !`;
+    } dengan spesifikasi : Transmisi ${transmisi[0]}, Bahan bakar ${mobil?.fuel} selama ${day} hari mulai tanggal ${tanggal}. Total Harga ${formattedCurrency} !`;
 
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
       message,
